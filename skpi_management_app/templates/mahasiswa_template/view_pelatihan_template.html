@@ -1,0 +1,27 @@
+{% extends "mahasiswa_template/base_template.html" %}
+{% load crispy_forms_tags %}
+{% block main_content %}
+<div class="row mt-2">
+  <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12 m-4">
+                    <h6>Detail Pelatihan </h6>
+                    <div class="row">
+                        <div class="col-md-11 mt-8">
+                            <div class="card-body">
+                                <form method="POST" role="form">
+                                    {% csrf_token %}
+                                    {{ form|crispy}}
+                                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                                    <a href="{% url 'student_home' %}" class="btn btn-warning btn-sm">Batal</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>   
+</div>
+{% endblock main_content %}

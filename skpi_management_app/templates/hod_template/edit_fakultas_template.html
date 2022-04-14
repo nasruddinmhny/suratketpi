@@ -1,0 +1,25 @@
+{% extends "hod_template/base_template.html" %}
+{% load crispy_forms_tags %}
+{% block main_content %}
+<div class="page-heading">
+    <h1 class="page-title">Data</h1>
+</div>
+<div class="page-content fade-in-up">
+    <div class="ibox">
+        <div class="ibox-head">
+            <div class="ibox-title">
+                Form Update
+            </div>
+        </div>
+        <div class="ibox-body">
+           <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy}}
+            <button type="submit" class="btn btn-primary btn-sm">Update</button>
+            <a href="{% url 'manage_fakultas' %}" class="btn btn-warning btn-sm">Batal</a>
+           </form>
+        </div>
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
+{% endblock main_content %}

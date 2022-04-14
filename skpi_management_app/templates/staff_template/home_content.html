@@ -1,0 +1,90 @@
+{% extends 'staff_template/base_template.html' %}
+{% block main_content %}
+
+{% load static %}
+
+<div class="page-content fade-in-up">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="ibox">
+                <div class="ibox-head">
+                    <div class="ibox-title">Informasi</div>
+                </div>
+                <div class="ibox-body">
+                    <span class="badge badge-primary">Data Program Studi</span>
+                    <br>
+                    <table class="table">
+                        <thead >
+                            <th>Kode Prodi</th>
+                            <th>Program Studi</th>
+                            <th>Jenjang</th>
+                            <th>No. SK</th>
+                            <th>Akreditasi</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ loginuserprodi.programstudi.kodeprodi }}</td>
+                                <td>{{loginuserprodi.programstudi}}</td>
+                                <td>{{ loginuserprodi.programstudi.jenjang}}</td>
+                                <td>{{ loginuserprodi.programstudi.noskakreditasi }}</td>
+                                <td>{{ loginuserprodi.programstudi.nilaiakreditasi }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   <br>
+                    <span class="badge badge-danger">Data Mahasiswa Sudah OKE</span>
+                    <table class="table">
+                        <thead>
+                            <th>Jumlah Mahasiswa</th>
+                            <th>Sudah Fix</th>
+                            <th>Belum Fix</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ mahasiswa_count }}</td>
+                                <td>15 - Orang</td>
+                                <td>5 - Orang</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <div><p><i>* Jumlah Data mahasiswa yang telah memprogram skripsi</i></p></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox">
+                <div class="ibox-head">
+                    <div class="ibox-title">Keterangan</div>
+                </div>
+                <div class="ibox-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <canvas id="doughnut_chart" style="height:160px;"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="m-b-20 text-success"><i class="fa fa-circle-o m-r-10"></i>Desktop 52%</div>
+                            <div class="m-b-20 text-info"><i class="fa fa-circle-o m-r-10"></i>Tablet 27%</div>
+                            <div class="m-b-20 text-warning"><i class="fa fa-circle-o m-r-10"></i>Mobile 21%</div>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-divider list-group-full">
+                        <li class="list-group-item">Chrome
+                            <span class="float-right text-success"><i class="fa fa-caret-up"></i> 24%</span>
+                        </li>
+                        <li class="list-group-item">Firefox
+                            <span class="float-right text-success"><i class="fa fa-caret-up"></i> 12%</span>
+                        </li>
+                        <li class="list-group-item">Opera
+                            <span class="float-right text-danger"><i class="fa fa-caret-down"></i> 4%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main_content %}
+
+

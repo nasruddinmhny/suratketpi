@@ -1,0 +1,112 @@
+{% extends 'mahasiswa_template/base_template.html' %}
+{% block main_content %}
+
+{% load static %}
+
+<div class="page-content fade-in-up">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card mb-1">
+                <h6 class="card-header bg-teal">PROFIL</h6>
+                <div class="card-body">
+                  <h5 class="card-title"><span class="badge badge-warning">Data Personal</span></h5>
+                  <table class="table table-sm">
+                        <tr>
+                            <td>Nim</td><td>: {{mahasiswa.nim}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nama</td><td>: {{customuser.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Jenis Kelamin</td><td>: {{mahasiswa.gender}}</td>
+                        </tr>
+                        <tr>
+                            <td>Temp. Lahir</td><td>: {{mahasiswa.tempatlahir}}</td>
+                        </tr>
+                        <tr>
+                            <td>Tgl. Lahir</td><td>: {{mahasiswa.tgllahir}}</td>
+                        </tr>
+                        <tr>
+                            <td>Jurusan</td><td>: {{mahasiswa.programstudi}}</td>
+                        </tr>
+                  </table>
+                  <br>
+                  <h5 class="card-title"><span class="badge badge-warning">Data Kontak</span></h5>
+                  <table class="table">
+                    <tr>
+                        <td>Alamat</td><td>: {{mahasiswa.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>E-mail</td><td>: {{customuser.email}}</td>
+                    </tr>
+                    </table>
+                    <a href="{% url 'student_view' %}" class="btn btn-outline-warning btn-sm">View Data</a>
+                </div>
+            </div>
+            <div class="card">
+                <h6 class="card-header bg-">ORGANISASI</h6>
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                    <table class="table">
+                    <tr>
+                        <td>Kegiatan</td><td>: {{mahasiswa.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>E-mail</td><td>: {{customuser.email}}</td>
+                    </tr>
+                    </table>
+                    <a href="" class="btn btn-outline-warning btn-sm">View Data</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-1">
+                <h6 class="card-header bg-teal">PELATIHAN / WORKSHOP</h6>
+                <div class="card-body">
+                  <h5 class="card-title"><span class="badge badge-warning">Pelatihan</span></h5>
+                    <table class="table table-sm">
+                     <thead>
+                         <th>Pelatihan</th>
+                         <th>Waktu</th>
+                     </thead>
+                      <tbody>
+                          {% for pel in pelatihan %}
+                            <tr>
+                                <td>{{ pel.kegiatan}}</td>
+                                <td>{{ pel.tglpelatihan}}</td>
+                            </tr>
+                          {% endfor %}
+                        
+                      </tbody>
+                    </table>
+                    <a href="{% url 'mahasiswa_manage_pelatihan' %}" class="btn btn-outline-warning btn-sm">View Data</a>
+                </div>
+            </div>
+            <div class="card">
+                <h6 class="card-header bg-teal">PRESTASI</h6>
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <table class="table table-sm">
+                    <thead>
+                        <th>Prestasi</th>
+                        <th>Waktu</th>
+                    </thead>
+                     <tbody>
+                         {% for pres in prestasi %}
+                           <tr>
+                               <td>{{ pres.namaprestasi}}</td>
+                               <td>{{ pres.tglkegiatan}}</td>
+                           </tr>
+                         {% endfor %}
+                       
+                     </tbody>
+                   </table>
+                  <a href="{% url 'mahasiswa_manage_prestasi' %}" class="btn btn-outline-warning btn-sm">view data</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+{% endblock main_content %}
+
+

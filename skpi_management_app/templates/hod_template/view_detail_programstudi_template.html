@@ -1,0 +1,66 @@
+{% extends "hod_template/base_template.html" %}
+{% block main_content %}
+<div class="row mt-2">
+  <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12 m-4">
+                    <h4>Detail Program Studi</h4>
+                    <a href="{% url 'manage_programstudi' %}" class="btn btn-warning btn-sm mt-3">Kembali</a>
+                    <div class="row">
+                        <div class="col-md-4 mt-4">
+                            <h3>Sertifikat</h3>
+                            <img src="{{programstudi.images.url}}" width="500px" height="600px" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-6 mt-8 float-left">
+                            <div class="card-body">
+                                <h5 class="card-title"><h2>{{ programstudi.nama | upper }}</h2></h5>
+                                <table class="table">
+                                    <tr>
+                                        <td>Nama Singkatan</td><td>: {{ programstudi.namasingkat}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jenjang</td><td> : {{ programstudi.jenjang}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jenis</td><td> : {{ programstudi.jenis}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Level Kualifikasi</td><td> : {{ programstudi.levelkualifikasi}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>No. Sk</td><td> : {{ programstudi.noskakreditasi}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nilai</td><td> : {{ programstudi.nilaiakreditasi}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lama Studi</td><td> : {{ programstudi.lamastudi}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sistem Penilaian</td><td> : {{ programstudi.sistempenilaian}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bahasa PEngantar</td><td> : {{ programstudi.bahasapengantar}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pendidikan Lanjutan</td><td> : {{ programstudi.Pendidikanlanjutan}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fakultas</td><td> : {{ programstudi.fakultas.nama}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kampus</td><td> : {{ programstudi.fakultas.kampus.nama}}</td>
+                                    </tr>
+                                </table>
+                              </div>
+                        </div>
+                    </div>
+                   
+
+                </div>
+            </div>
+        </div>
+  </div>   
+</div>
+{% endblock main_content %}
